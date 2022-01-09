@@ -11,6 +11,7 @@ Identificar os objetos e classes:
 Refinar a lista de classes:
 - identificar nomes diferentes que representam a mesma classe
   - deixar no singular
+- nomes fora do escopo do sistema e/ou são verbos "enrustidos"
 - retirar nomes que representam atributos
 - Identificar classes e subclasses
 - remover atores que interagem com o sistema
@@ -27,7 +28,7 @@ Responsabilidades óbvias.
   - classe faz -> métodos
 
 ## Passo 4
-Verbos (da especificação) como responsabilidades.
+Identificar verbos (da especificação) como responsabilidades.
 
 - listagem dos verbos encontrados
 
@@ -45,3 +46,5 @@ Lógica das responsabilidades, em especial do tipo faz.
 - Descrever lógica
 - Identificar novas responsabilidades
 - Identificar colaborações
+
+![](./crc-exemplo.png)
