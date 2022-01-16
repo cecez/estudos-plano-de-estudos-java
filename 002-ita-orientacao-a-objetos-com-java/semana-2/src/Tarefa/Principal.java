@@ -2,8 +2,7 @@ package Tarefa;
 
 public class Principal
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws Exception {
         // Cria 3 pizzas com ingredientes diferentes
         Pizza pizza1 = new Pizza();
         pizza1.adicionaIngrediente("Vegetariana");

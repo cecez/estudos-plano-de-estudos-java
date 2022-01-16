@@ -6,11 +6,12 @@ public class CarrinhoDeCompras
 {
     private final ArrayList<Pizza> pizzas = new ArrayList<>();
 
-    public void adiciona(Pizza pizza)
-    {
-        if (pizza.temIngredientes()) {
-            pizzas.add(pizza);
+    public void adiciona(Pizza pizza) throws Exception {
+        if (!pizza.temIngredientes()) {
+            throw new Exception("Não é possível incluir uma pizza sem ingredientes");
         }
+
+        pizzas.add(pizza);
     }
 
     public int valorTotal()

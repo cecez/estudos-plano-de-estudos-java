@@ -12,10 +12,20 @@ public class Pizza
         totalDeIngredientes.merge(ingrediente, 1, Integer::sum);
     }
 
+    public static void reiniciaIngredientes()
+    {
+        totalDeIngredientes = new HashMap<>();
+    }
+
     public void adicionaIngrediente(String ingrediente)
     {
         ingredientes++;
         contabilizaIngrediente(ingrediente);
+    }
+
+    public int getIngredientes()
+    {
+        return this.ingredientes;
     }
 
     public int getPreco()
