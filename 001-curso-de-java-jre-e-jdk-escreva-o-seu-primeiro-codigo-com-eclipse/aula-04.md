@@ -10,3 +10,5 @@ float	4 bytes
 long	8 bytes	
 double	8 bytes
 </pre>
+
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
