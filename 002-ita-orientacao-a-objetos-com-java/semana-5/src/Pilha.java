@@ -24,4 +24,10 @@ public class Pilha {
         return indiceTopo;
     }
 
+    public Object[] getElementos() {
+        // realiza cópia do array para que não passe referência
+        // do contrário, encapsulamento estaria violado (permitiria alterar o array)
+        Object[] copiaElementos = Arrays.copyOf(elementos, tamanho());
+        return copiaElementos;
+    }
 }
