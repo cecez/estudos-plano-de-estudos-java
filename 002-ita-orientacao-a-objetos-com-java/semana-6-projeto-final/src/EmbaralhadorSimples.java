@@ -4,5 +4,9 @@
 
 public class EmbaralhadorSimples implements Embaralhador {
 
-
+    @Override
+    public String embaralha(String palavraOriginal) {
+        StringBuilder palavra = new StringBuilder(palavraOriginal);
+        return palavra.reverse().toString();
+    }
 }

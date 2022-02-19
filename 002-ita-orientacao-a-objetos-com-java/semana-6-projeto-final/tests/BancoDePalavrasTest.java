@@ -2,19 +2,19 @@ import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BancoDePalavrasTest {
 
     @Test
-    void palavraValida() {
+    protected void palavraValida() {
         // arrange
         BancoDePalavras bancoDePalavras = new BancoDePalavras();
 
@@ -24,52 +24,40 @@ class BancoDePalavrasTest {
         // assert
         assertFalse(palavra.isBlank());
         assertTrue(palavra.length() >= 2);
+        System.out.println(palavra);
     }
 
     @Test
-    void palavraExisteNoBancoDePalavras() {
+    protected void palavraExisteNoBancoDePalavras() {
         // arrange
         BancoDePalavras bancoDePalavras = new BancoDePalavras();
-        // carrega banco
-        String[] bancoDePalavrasDoArquivo = this.carregaBanco();
-        System.out.println(Arrays.toString(bancoDePalavrasDoArquivo));
+        Set<String> bancoDePalavrasDoArquivo = this.carregaBanco();
 
         // act
         String palavra = bancoDePalavras.palavra();
 
         // assert
         // palavra deve estar no banco
-
+        assertTrue(bancoDePalavrasDoArquivo.contains(palavra));
+        System.out.println(palavra);
     }
 
-    public String[] carregaBanco() {
+    private Set<String> carregaBanco() {
 
-        // lê quantas linhas tem no arquivo
+        Set<String> bancoDePalavras = new HashSet<>();
+
         Path file = Paths.get("/Users/cezarcastrorosa/IdeaProjects/estudos-plano-de-estudos-java/002-ita-orientacao-a-objetos-com-java/semana-6-projeto-final/src/palavras.txt");
-        int linhas = 0;
-        try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
-            while (reader.readLine() != null) {
-                linhas++;
-            }
-        } catch (IOException x) {
-            System.err.format("IOException: %s%n", x);
-        }
 
-        // cria array
-        String[] banco = new String[linhas];
-
-        // adiciona palavras no array
-        linhas = 0;
         try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
-                banco[linhas++] = line;
+                bancoDePalavras.add(line);
             }
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);
         }
 
-        return banco;
+        return bancoDePalavras;
     }
 
 

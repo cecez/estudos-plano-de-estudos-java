@@ -4,4 +4,5 @@
  */
 
 public interface Embaralhador {
+    String embaralha(String palavraOriginal);
 }

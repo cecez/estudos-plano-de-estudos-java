@@ -11,17 +11,21 @@ public class Principal {
     public static void main(String[] args) {
         System.out.println("Que comece o jogo das palavras embaralhadas!");
 
+        boasVindas();
+
+        MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.create();
+        System.out.println("Jogando com a " + mecanica.titulo());
+        mecanica.comecaJogo();
+        // while mecanica.naoTerminou() { processaTentativa(); }
+        mecanica.terminaJogo();
+    }
+
+    private static void boasVindas() {
         // leitura do console
         Scanner entrada = new Scanner(System.in);
-
         System.out.print("Digite seu nome: ");
         String nomeDoJogador = entrada.nextLine();
         System.out.println("Bom jogo " + nomeDoJogador + "!");
-
-
-
-        // recuperar instância de MecanicaDoJogo da Fabrica
-        // MecanicaDoJogo mecanica = FabricaMecanicaDoJogo::factory();
     }
 
 }
