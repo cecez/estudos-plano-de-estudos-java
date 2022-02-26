@@ -16,8 +16,14 @@ public class Principal {
         MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.create();
         System.out.println("Jogando com a " + mecanica.titulo());
         mecanica.comecaJogo();
+        System.out.println("Palavra embaralhada:");
+        System.out.println(mecanica.getPalavraEmbaralhada());
+
         // while mecanica.naoTerminou() { processaTentativa(); }
+
         mecanica.terminaJogo();
+        System.out.println("A palavra original é:");
+        System.out.println(mecanica.getPalavraOriginal());
     }
 
     private static void boasVindas() {

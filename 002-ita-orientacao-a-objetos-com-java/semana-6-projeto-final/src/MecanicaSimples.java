@@ -10,11 +10,21 @@ public class MecanicaSimples implements MecanicaDoJogo {
 
     String palavraOriginal;
     String palavraEmbaralhada;
-
     Embaralhador embaralhador;
+
 
     public MecanicaSimples() {
         this.embaralhador = FabricaEmbaralhadores.create();
+    }
+
+    @Override
+    public String getPalavraEmbaralhada() {
+        return palavraEmbaralhada;
+    }
+
+    @Override
+    public String getPalavraOriginal() {
+        return palavraOriginal;
     }
 
     @Override
@@ -26,13 +36,11 @@ public class MecanicaSimples implements MecanicaDoJogo {
     public void comecaJogo() {
         this.palavraOriginal = new BancoDePalavras().palavra();
         this.palavraEmbaralhada = this.embaralhador.embaralha(palavraOriginal);
-
-        System.out.println("A palavra embaralhada é: " + palavraEmbaralhada);
     }
 
     @Override
     public void terminaJogo() {
-        System.out.println("A palavra original é: " + this.palavraOriginal);
+
     }
 
 
