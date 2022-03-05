@@ -15,6 +15,7 @@ public class Principal {
 
         MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.create();
         System.out.println("Jogando com a " + mecanica.titulo());
+        System.out.println("Jogando com o " + mecanica.getNomeDoEmbaralhador());
         mecanica.comecaJogo();
         System.out.println("Palavra embaralhada:");
         System.out.println(mecanica.getPalavraEmbaralhada());

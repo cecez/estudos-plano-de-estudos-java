@@ -1,5 +1,15 @@
+import java.util.Random;
+
 public class FabricaEmbaralhadores {
     public static Embaralhador create() {
-        return new EmbaralhadorShuffle();
+
+        Embaralhador[] embaralhadorEscolhido = {
+                new EmbaralhadorShuffle(),
+                new EmbaralhadorReverso()
+        };
+
+        int indiceAleatorio = new Random().nextInt(embaralhadorEscolhido.length);
+
+        return embaralhadorEscolhido[indiceAleatorio];
     }
 }

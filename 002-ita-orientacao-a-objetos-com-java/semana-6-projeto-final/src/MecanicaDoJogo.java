@@ -3,5 +3,6 @@ public interface MecanicaDoJogo {
     void comecaJogo();
     String getPalavraEmbaralhada();
     String getPalavraOriginal();
+    String getNomeDoEmbaralhador();
     void terminaJogo();
 }

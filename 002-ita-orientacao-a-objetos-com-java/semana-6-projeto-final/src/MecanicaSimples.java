@@ -28,6 +28,11 @@ public class MecanicaSimples implements MecanicaDoJogo {
     }
 
     @Override
+    public String getNomeDoEmbaralhador() {
+        return this.embaralhador.tipo();
+    }
+
+    @Override
     public String titulo() {
         return "Mecânica simples";
     }

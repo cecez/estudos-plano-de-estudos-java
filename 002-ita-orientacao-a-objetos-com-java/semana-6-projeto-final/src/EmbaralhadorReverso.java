@@ -9,4 +9,9 @@ public class EmbaralhadorReverso implements Embaralhador {
         StringBuilder palavra = new StringBuilder(palavraOriginal);
         return palavra.reverse().toString();
     }
+
+    @Override
+    public String tipo() {
+        return "Embaralhador Reverso";
+    }
 }

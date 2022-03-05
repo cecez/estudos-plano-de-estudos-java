@@ -5,4 +5,5 @@
 
 public interface Embaralhador {
     String embaralha(String palavraOriginal);
+    String tipo();
 }

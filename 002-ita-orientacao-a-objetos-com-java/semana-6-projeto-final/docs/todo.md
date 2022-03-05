@@ -1,3 +1,10 @@
 # Jogo das palavras embaralhadas
 
-[] Criar esqueleto básico a partir da descrição
+[x] Teste para garantir que fábrica de embaralhadores retorna um embaralhador válido
+
+[ ] Teste para interface embaralhador
+
+[ ] planejar mecânica do jogo
+
+[ ] implementar mecânica do jogo simples
+

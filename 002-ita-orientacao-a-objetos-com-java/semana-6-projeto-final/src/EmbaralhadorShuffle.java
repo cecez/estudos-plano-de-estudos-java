@@ -25,4 +25,9 @@ public class EmbaralhadorShuffle implements Embaralhador {
 
         return stringBuilder.toString();
     }
+
+    @Override
+    public String tipo() {
+        return "Embaralhador Shuffle";
+    }
 }
