@@ -9,30 +9,49 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println("Que comece o jogo das palavras embaralhadas!");
+        MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.create();
 
         boasVindas();
 
-        MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.create();
-        System.out.println("Jogando com a " + mecanica.titulo());
-        System.out.println("Jogando com o " + mecanica.getNomeDoEmbaralhador());
         mecanica.comecaJogo();
-        System.out.println("Palavra embaralhada:");
-        System.out.println(mecanica.getPalavraEmbaralhada());
+        while (mecanica.naoTerminou()) {
+            imprimePalavraEmbaralhada(mecanica.getPalavraEmbaralhada());
+            String chute = obtemChute();
+            mecanica.processaTentativa(chute);
+            System.out.println("Processando tentativa com " + chute);
+        }
+        imprimeMensagemFinal(mecanica.mensagemFinal());
 
-        // while mecanica.naoTerminou() { processaTentativa(); }
-
-        mecanica.terminaJogo();
         System.out.println("A palavra original é:");
         System.out.println(mecanica.getPalavraOriginal());
     }
 
+    private static String obtemChute() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Digite seu chute: ");
+        return entrada.nextLine();
+    }
+
+    private static void imprimePalavraEmbaralhada(String palavraEmbaralhada) {
+        System.out.println("************************");
+        System.out.println("* Palavra embaralhada: *");
+        System.out.println("* " + palavraEmbaralhada);
+        System.out.println("************************");
+    }
+
+    private static void imprimeMensagemFinal(String mensagem) {
+        System.out.println(mensagem);
+    }
+
     private static void boasVindas() {
+
+        System.out.println("Que comece o jogo das palavras embaralhadas!");
+
         // leitura do console
         Scanner entrada = new Scanner(System.in);
         System.out.print("Digite seu nome: ");
-        String nomeDoJogador = entrada.nextLine();
-        System.out.println("Bom jogo " + nomeDoJogador + "!");
+//        String nomeDoJogador = entrada.nextLine();
+//        System.out.println("Bom jogo " + nomeDoJogador + "!");
     }
 
 }
