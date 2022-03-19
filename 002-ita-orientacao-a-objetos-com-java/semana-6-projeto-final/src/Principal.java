@@ -15,10 +15,11 @@ public class Principal {
 
         mecanica.comecaJogo();
         while (mecanica.naoTerminou()) {
+            // talvez colocar um imprimeMensagem(mecanica.mensagemAntesDoChute());
             imprimePalavraEmbaralhada(mecanica.getPalavraEmbaralhada());
             String chute = obtemChute();
-            mecanica.processaTentativa(chute);
             System.out.println("Processando tentativa com " + chute);
+            mecanica.processaTentativa(chute);
         }
         imprimeMensagemFinal(mecanica.mensagemFinal());
 
@@ -50,8 +51,8 @@ public class Principal {
         // leitura do console
         Scanner entrada = new Scanner(System.in);
         System.out.print("Digite seu nome: ");
-//        String nomeDoJogador = entrada.nextLine();
-//        System.out.println("Bom jogo " + nomeDoJogador + "!");
+        String nomeDoJogador = entrada.nextLine();
+        System.out.println("Bom jogo " + nomeDoJogador + "!");
     }
 
 }
