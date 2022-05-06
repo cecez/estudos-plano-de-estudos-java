@@ -3,4 +3,6 @@ public class BankAccount {
     int agency;
     int number;
     String holder;
+    boolean active;
+    char code;
 }

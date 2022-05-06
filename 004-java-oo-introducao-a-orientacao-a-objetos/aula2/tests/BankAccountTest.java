@@ -7,6 +7,8 @@ class BankAccountTest {
     @Test
     void test() {
         BankAccount bankAccount = new BankAccount();
+
+        System.out.println(bankAccount.active);
     }
 
 }

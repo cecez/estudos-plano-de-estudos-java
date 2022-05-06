@@ -1,6 +1,8 @@
+import java.util.Arrays;
+
 public class Pilha {
 
-    private Object[] elementos;
+    private final Object[] elementos;
     private int indiceTopo = 0;
 
     Pilha(int maximoDeElementos) {
@@ -27,7 +29,6 @@ public class Pilha {
     public Object[] getElementos() {
         // realiza cópia do array para que não passe referência
         // do contrário, encapsulamento estaria violado (permitiria alterar o array)
-        Object[] copiaElementos = Arrays.copyOf(elementos, tamanho());
-        return copiaElementos;
+        return Arrays.copyOf(elementos, tamanho());
     }
 }

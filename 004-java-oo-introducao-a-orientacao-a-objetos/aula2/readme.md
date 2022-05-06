@@ -1,0 +1,2 @@
+- Quando um objeto é instanciado, seus atributos são inicializados com valores padrão, de acordo com o tipo. (Ex: int=0, double=0.0, String=null, boolean=false).
+- Ao instanciar um objeto, cria-se uma referência para seu local de armazenamento na memória (e não o objeto em si).
