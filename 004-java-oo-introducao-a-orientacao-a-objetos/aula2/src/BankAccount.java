@@ -18,4 +18,13 @@ public class BankAccount {
         this.balance -= value;
         return true;
     }
+
+    public boolean transfer(double value, BankAccount destinationAccount) {
+        if (this.withdraw(value)) {
+            destinationAccount.deposit(value);
+            return true;
+        }
+
+        return false;
+    }
 }
