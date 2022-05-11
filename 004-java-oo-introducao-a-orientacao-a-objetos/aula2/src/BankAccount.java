@@ -2,7 +2,7 @@ public class BankAccount {
     double balance = 0;
     int agency;
     int number;
-    String holder;
+    BankClient bankClient;
     boolean active = true;
     char code;
 
