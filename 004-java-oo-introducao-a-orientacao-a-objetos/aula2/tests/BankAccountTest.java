@@ -30,7 +30,13 @@ class BankAccountTest {
         this.bankAccount.deposit(200);
         this.bankAccount.deposit(200);
 
-        assertEquals(400, this.bankAccount.balance);
+        assertEquals(400, this.bankAccount.balance());
+    }
+
+    @Test
+    void it_cannot_deposit_negative_values() {
+        this.bankAccount.deposit(-100);
+        assertEquals(0, this.bankAccount.balance());
     }
 
     @Test
@@ -38,7 +44,7 @@ class BankAccountTest {
         this.bankAccount.deposit(100);
 
         assertTrue(this.bankAccount.withdraw(50));
-        assertEquals(50, this.bankAccount.balance);
+        assertEquals(50, this.bankAccount.balance());
     }
 
     @Test
@@ -46,13 +52,13 @@ class BankAccountTest {
         this.bankAccount.deposit(100);
 
         assertTrue(this.bankAccount.withdraw(100));
-        assertEquals(0, this.bankAccount.balance);
+        assertEquals(0, this.bankAccount.balance());
     }
 
     @Test
     void it_cannot_withdraw_values() {
         assertFalse(this.bankAccount.withdraw(100));
-        assertEquals(0, this.bankAccount.balance);
+        assertEquals(0, this.bankAccount.balance());
     }
 
     @Test
@@ -61,8 +67,8 @@ class BankAccountTest {
         boolean successfulTransfer = this.bankAccount.transfer(250, this.destinationAccount);
 
         assertTrue(successfulTransfer);
-        assertEquals(250, this.bankAccount.balance);
-        assertEquals(250, this.destinationAccount.balance);
+        assertEquals(250, this.bankAccount.balance());
+        assertEquals(250, this.destinationAccount.balance());
     }
 
     @Test
@@ -70,8 +76,8 @@ class BankAccountTest {
         boolean invalidTransfer = this.bankAccount.transfer(100, this.destinationAccount);
 
         assertFalse(invalidTransfer);
-        assertEquals(0, this.bankAccount.balance);
-        assertEquals(0, this.destinationAccount.balance);
+        assertEquals(0, this.bankAccount.balance());
+        assertEquals(0, this.destinationAccount.balance());
     }
 
 }
