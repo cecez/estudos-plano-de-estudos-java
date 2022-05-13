@@ -22,7 +22,7 @@ class BankAccountTest {
 
     @Test
     void it_has_an_active_account() {
-        assertTrue(this.bankAccount.active);
+        assertTrue(this.bankAccount.getActive());
     }
 
     @Test

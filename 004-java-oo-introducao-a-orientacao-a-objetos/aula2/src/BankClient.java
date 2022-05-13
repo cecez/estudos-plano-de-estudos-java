@@ -1,7 +1,7 @@
 public class BankClient {
-    String name;
-    String cpf;
-    String profession;
+    private String name;
+    private String cpf;
+    private String profession;
 
     public BankClient(String name, String cpf, String profession) {
         this.name = name;

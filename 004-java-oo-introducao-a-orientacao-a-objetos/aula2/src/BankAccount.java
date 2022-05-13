@@ -1,10 +1,14 @@
 public class BankAccount {
     private double balance = 0;
-    int agency;
-    int number;
-    BankClient bankClient;
-    boolean active = true;
-    char code;
+    private int agency;
+    private int number;
+    private BankClient bankClient;
+    private boolean active = true;
+    private char code;
+
+    public boolean getActive() {
+        return this.active;
+    }
 
     public double balance() {
         return this.balance;
