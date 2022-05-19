@@ -10,8 +10,8 @@ class BankAccountTest {
 
     @BeforeEach
     void setUp() {
-        this.bankAccount = new BankAccount();
-        this.destinationAccount = new BankAccount();
+        this.bankAccount = new BankAccount(1, 1);
+        this.destinationAccount = new BankAccount(2, 2);
     }
 
     @AfterEach

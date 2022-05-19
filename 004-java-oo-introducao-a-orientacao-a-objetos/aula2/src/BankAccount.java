@@ -6,6 +6,15 @@ public class BankAccount {
     private boolean active = true;
     private char code;
 
+    private static int totalAccounts = 0;
+
+    public BankAccount(int agency, int number) {
+        this.agency = agency;
+        this.number = number;
+
+        BankAccount.totalAccounts++;
+    }
+
     public boolean getActive() {
         return this.active;
     }
@@ -37,4 +46,9 @@ public class BankAccount {
 
         return false;
     }
+
+    public static int getTotalAccounts() {
+        return BankAccount.totalAccounts;
+    }
+
 }
