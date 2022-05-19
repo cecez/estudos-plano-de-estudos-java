@@ -1,6 +1,8 @@
 public class Movie {
     private String title;
     private String urlImage;
+    private double rating;
+    private int year;
 
     public void setTitle(String title) {
         this.title = title;
@@ -10,11 +12,27 @@ public class Movie {
         this.urlImage = urlImage;
     }
 
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public String getUrlImage() {
         return urlImage;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public int getYear() {
+        return year;
     }
 }

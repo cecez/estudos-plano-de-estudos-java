@@ -23,6 +23,10 @@ public class Main {
 
             System.out.println("Title: " + movieObject.getTitle());
             System.out.println("Image: " + movieObject.getUrlImage());
+            System.out.println("Rating: " + movieObject.getRating());
+            System.out.println("Year: " + movieObject.getYear());
+
+
             System.out.println("--------------------------------");
         }
     }
@@ -72,6 +76,12 @@ public class Main {
                 movieObject.setTitle(movieRawItem[1]);
             } else if (movieRawItem[0].equals("image")) {
                 movieObject.setUrlImage(movieRawItem[1]);
+            } else if (movieRawItem[0].equals("imDbRating")) {
+                double rating = Double.parseDouble(movieRawItem[1]);
+                movieObject.setRating(rating);
+            } else if (movieRawItem[0].equals("year")) {
+                int year = Integer.parseInt(movieRawItem[1]);
+                movieObject.setYear(year);
             }
 
         }
