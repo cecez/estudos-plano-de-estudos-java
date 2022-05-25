@@ -1,0 +1,1 @@
+- A sobrecarga não leva em conta a visibilidade ou retorno do método, apenas os parâmetros e não depende da herança.
