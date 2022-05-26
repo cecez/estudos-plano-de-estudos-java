@@ -1,1 +1,2 @@
-- A sobrecarga não leva em conta a visibilidade ou retorno do método, apenas os parâmetros e não depende da herança.
+- Method overloading does not care about visibility and return type, just the method parameters (quantity, types).
+- Inheritance benefits: polymorphism, code reuse.
