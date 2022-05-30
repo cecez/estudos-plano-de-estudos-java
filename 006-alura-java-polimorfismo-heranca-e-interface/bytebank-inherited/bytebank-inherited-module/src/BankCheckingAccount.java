@@ -1,0 +1,12 @@
+public class BankCheckingAccount extends BankAccount {
+    public BankCheckingAccount(int agency, int number) {
+        super(agency, number);
+    }
+
+    @Override
+    public boolean withdraw(double value) {
+        double withdrawTax = 0.2;
+        double totalCostWithdraw = value + withdrawTax;
+        return super.withdraw(totalCostWithdraw);
+    }
+}
