@@ -7,9 +7,9 @@ class EmployeeTest {
 
     @Test
     void it_has_a_correct_salary_bonus() {
-        Employee employee = new Employee();
+        Employee employee = new Manager();
         employee.setSalary(1000);
 
-        assertEquals(100, employee.getBonus());
+        assertEquals(1000, employee.getBonus());
     }
 }
