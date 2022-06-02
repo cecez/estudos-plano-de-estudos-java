@@ -1,8 +1,8 @@
-public class Manager extends Employee implements Authenticable {
+public class Client implements Authenticable {
 
     private final AuthenticableUtil authenticator;
 
-    public Manager() {
+    public Client() {
         this.authenticator = new AuthenticableUtil();
     }
 
@@ -12,9 +12,5 @@ public class Manager extends Employee implements Authenticable {
 
     public boolean authenticate(int password) {
         return this.authenticator.authenticate(password);
-    }
-
-    public double getBonus() {
-        return super.getSalary();
     }
 }
