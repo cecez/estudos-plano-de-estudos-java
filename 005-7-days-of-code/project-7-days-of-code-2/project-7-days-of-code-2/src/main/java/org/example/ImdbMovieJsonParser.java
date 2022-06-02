@@ -3,19 +3,20 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONParser {
+public class ImdbMovieJsonParser implements JsonParser{
 
     private final String rawJSON;
-    List<Movie> movieList = new ArrayList<>();
+    List<Content> movieList = new ArrayList<>();
     private String movieData;
 
-    public JSONParser(String rawJSON) {
+    public ImdbMovieJsonParser(String rawJSON) {
         this.rawJSON = rawJSON;
     }
 
-    public void parse() {
+    public List<Content> parse() {
         this.movieData();
         this.parseMovies();
+        return this.movieList;
     }
 
     // process movie data
@@ -47,7 +48,7 @@ public class JSONParser {
         return movieTrimmed.trim();
     }
 
-    public Movie movieAttributes(String movieRawAttributes) {
+    private Movie movieAttributes(String movieRawAttributes) {
         String[] movieAttributes = movieRawAttributes.split("\",\"");
 
         Movie movieObject = new Movie();
@@ -55,27 +56,20 @@ public class JSONParser {
             String[] movieRawItem = movieRawAttribute.split("\":\"");
 
             switch (movieRawItem[0]) {
-                case "title":
-                    movieObject.setTitle(movieRawItem[1]);
-                    break;
-                case "image":
-                    movieObject.setUrlImage(movieRawItem[1]);
-                    break;
-                case "imDbRating":
+                case "title" -> movieObject.setTitle(movieRawItem[1]);
+                case "image" -> movieObject.setUrlImage(movieRawItem[1]);
+                case "imDbRating" -> {
                     double rating = Double.parseDouble(movieRawItem[1]);
                     movieObject.setRating(rating);
-                    break;
-                case "year":
+                }
+                case "year" -> {
                     int year = Integer.parseInt(movieRawItem[1]);
                     movieObject.setYear(year);
-                    break;
+                }
             }
 
         }
         return movieObject;
     }
 
-    public List<Movie> getMovies() {
-        return movieList;
-    }
 }

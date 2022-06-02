@@ -1,7 +1,5 @@
 package org.example;
 
-
-import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.List;
@@ -12,17 +10,12 @@ public class App
     {
         try {
             String apiKey = Config.getApiKey();
-            IMDBApiWrapper imdbApiWrapper = new IMDBApiWrapper(apiKey);
-            String rawJson = imdbApiWrapper.getData();
+            String rawJson = new ImdbApiClient(apiKey).getBody();
 
-            JSONParser jsonParser = new JSONParser(rawJson);
-            jsonParser.parse();
-            List<Movie> movieList = jsonParser.getMovies();
+            List<Content> movieList = new ImdbMovieJsonParser(rawJson).parse();
 
-            File file = new File("movies.html");
-            Writer printWriter = new PrintWriter(file);
-            HTMLGenerator htmlGenerator = new HTMLGenerator(printWriter);
-            htmlGenerator.generate(movieList);
+            Writer printWriter = new PrintWriter("movies.html");
+            new HTMLGenerator(printWriter).generate(movieList);
             printWriter.close();
 
 

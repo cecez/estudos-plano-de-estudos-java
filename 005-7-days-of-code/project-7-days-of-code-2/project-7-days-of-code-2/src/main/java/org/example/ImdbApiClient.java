@@ -8,15 +8,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class IMDBApiWrapper {
+public class ImdbApiClient implements ApiClient {
     private final String apiKey;
 
-    public IMDBApiWrapper(String apiKey) {
+    public ImdbApiClient(String apiKey) {
         this.apiKey = apiKey;
     }
 
     // Obtain JSON data from the internet
-    public String getData() throws InterruptedException, URISyntaxException, IOException {
+    public String getBody() throws InterruptedException, URISyntaxException, IOException {
 
         // making request
         HttpClient httpClient = HttpClient.newHttpClient();

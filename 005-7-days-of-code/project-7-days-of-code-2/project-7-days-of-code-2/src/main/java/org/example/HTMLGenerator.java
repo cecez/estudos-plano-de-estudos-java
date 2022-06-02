@@ -12,8 +12,7 @@ public class HTMLGenerator {
         this.writer = writer;
     }
 
-    public void generate(List<Movie> movieList) throws IOException {
-
+    public void generate(List<Content> movieList) throws IOException {
 
         String htmlBegin =
                 """
@@ -26,7 +25,7 @@ public class HTMLGenerator {
         this.writer.write(htmlBegin);
 
         int movieIndex = 1;
-        for (Movie movieObject : movieList) {
+        for (Content contentObject : movieList) {
             String htmlMovie =
                     """
                     <p><b>%d. %s</b></p>
@@ -37,10 +36,10 @@ public class HTMLGenerator {
             htmlMovie = String.format(
                     htmlMovie,
                     movieIndex,
-                    movieObject.getTitle(),
-                    movieObject.getYear(),
-                    movieObject.getRating(),
-                    movieObject.getUrlImage());
+                    contentObject.getTitle(),
+                    contentObject.getYear(),
+                    contentObject.getRating(),
+                    contentObject.getUrlImage());
             this.writer.write(htmlMovie);
             movieIndex++;
         }
