@@ -1,8 +1,11 @@
 public class Client implements Authenticable {
 
+    private final PersonType personType;
+
     private final AuthenticableUtil authenticator;
 
     public Client() {
+        this.personType = PersonType.FISICA;
         this.authenticator = new AuthenticableUtil();
     }
 
