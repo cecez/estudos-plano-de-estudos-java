@@ -1,2 +1,4 @@
 - Method overloading does not care about visibility and return type, just the method parameters (quantity, types).
-- Inheritance benefits: polymorphism, code reuse.
+- Inheritance benefits: polymorphism AND code reuse. (Avoid use when only one benefit is needed)
+- Interface benefits: polymorphism.
+- Composition benefits: code reuse.
