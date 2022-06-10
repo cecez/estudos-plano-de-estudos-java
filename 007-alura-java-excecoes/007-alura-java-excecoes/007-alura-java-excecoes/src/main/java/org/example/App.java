@@ -23,6 +23,7 @@ public class App
         System.out.println("init method 2");
         for (int i=1; i<=5; i++) {
             System.out.println(i);
+            throw new ArithmeticException();
         }
         System.out.println("end method 2");
     }
