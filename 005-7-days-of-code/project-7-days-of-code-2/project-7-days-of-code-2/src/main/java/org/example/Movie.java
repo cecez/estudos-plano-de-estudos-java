@@ -1,6 +1,6 @@
 package org.example;
 
-public class Movie implements Content {
+public class Movie implements Content, Comparable<Movie> {
     private String title;
     private String urlImage;
     private double rating;
@@ -16,6 +16,11 @@ public class Movie implements Content {
 
     public double getRating() {
         return rating;
+    }
+
+    @Override
+    public String getType() {
+        return "Movie";
     }
 
     public int getYear() {
@@ -36,5 +41,10 @@ public class Movie implements Content {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public int compareTo(Movie o) {
+        return Double.compare(this.rating, o.getRating());
     }
 }

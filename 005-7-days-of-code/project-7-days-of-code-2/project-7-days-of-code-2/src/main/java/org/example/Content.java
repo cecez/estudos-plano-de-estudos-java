@@ -5,4 +5,5 @@ public interface Content {
     String getUrlImage();
     int getYear();
     double getRating();
+    String getType();
 }

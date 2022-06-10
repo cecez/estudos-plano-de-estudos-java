@@ -12,13 +12,13 @@ public class HTMLGenerator {
         this.writer = writer;
     }
 
-    public void generate(List<Content> movieList) throws IOException {
+    public void generate(List<? extends Content> movieList) throws IOException {
 
         String htmlBegin =
                 """
                 <html>
                     <head>
-                        <title>Top 250 movies from IMDB</title>
+                        <title>Top 250 movies from IMDB and some series from Marvel</title>
                     </head>
                     <body>
                 """;
@@ -28,7 +28,7 @@ public class HTMLGenerator {
         for (Content contentObject : movieList) {
             String htmlMovie =
                     """
-                    <p><b>%d. %s</b></p>
+                    <p><b>%d. %s (%s)</b></p>
                     <p><small>%d | %.2f</small></p>
                     <p><img src="%s" /></p>
                     <hr/>
@@ -37,6 +37,7 @@ public class HTMLGenerator {
                     htmlMovie,
                     movieIndex,
                     contentObject.getTitle(),
+                    contentObject.getType(),
                     contentObject.getYear(),
                     contentObject.getRating(),
                     contentObject.getUrlImage());

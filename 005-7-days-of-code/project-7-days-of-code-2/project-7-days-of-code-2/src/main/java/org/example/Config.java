@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class Config {
 
-    public static String getApiKey() throws Exception
+    public static String get(String key) throws Exception
     {
         InputStream input = App.class.getClassLoader().getResourceAsStream("config.properties");
 
@@ -17,11 +17,11 @@ public class Config {
         Properties prop = new Properties();
         prop.load(input);
 
-        if (prop.getProperty("api.key") == null) {
-            throw new Exception("property 'api.key' not found in the property file");
+        if (prop.getProperty(key) == null) {
+            throw new Exception(String.format("property '%s' not found in the property file", key));
         }
 
-        return prop.getProperty("api.key");
+        return prop.getProperty(key);
     }
 
 }

@@ -11,14 +11,12 @@ import java.time.Duration;
 public class ImdbApiClient implements ApiClient {
     private final String apiKey;
 
-    public ImdbApiClient(String apiKey) {
-        this.apiKey = apiKey;
+    public ImdbApiClient() throws Exception {
+        this.apiKey = Config.get("api.key");
     }
 
     // Obtain JSON data from the internet
     public String getBody() throws InterruptedException, URISyntaxException, IOException {
-
-        // making request
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
                 .newBuilder()
@@ -27,8 +25,6 @@ public class ImdbApiClient implements ApiClient {
                 .GET()
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-        // parsing request
         return response.body();
     }
 }

@@ -6,14 +6,14 @@ import java.util.List;
 public class ImdbMovieJsonParser implements JsonParser{
 
     private final String rawJSON;
-    List<Content> movieList = new ArrayList<>();
+    List<Movie> movieList = new ArrayList<>();
     private String movieData;
 
     public ImdbMovieJsonParser(String rawJSON) {
         this.rawJSON = rawJSON;
     }
 
-    public List<Content> parse() {
+    public List<Movie> parse() {
         this.movieData();
         this.parseMovies();
         return this.movieList;
