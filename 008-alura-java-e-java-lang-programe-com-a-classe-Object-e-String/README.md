@@ -1,0 +1,2 @@
+- folders inside "src" =~ "packages", that must be declared in its subfiles
+- Full Qualified Name - FQN = package.class_name
