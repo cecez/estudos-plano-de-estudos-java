@@ -7,3 +7,7 @@
   - protected (class and subclasses)
   - << package private >> (default, package only)
   - private (class only)
+
+- JAR
+  - export compiled files
+  - import them to a specific directory (libs), add to buildpath, import them in code
