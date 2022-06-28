@@ -11,3 +11,8 @@
 - JAR
   - export compiled files
   - import them to a specific directory (libs), add to buildpath, import them in code
+
+- java.lang (main Java package)
+- java.lang.String is immutable
+- StringBuilder to perform operations with Strings
+- java.lang.Object is the super class of all classes
