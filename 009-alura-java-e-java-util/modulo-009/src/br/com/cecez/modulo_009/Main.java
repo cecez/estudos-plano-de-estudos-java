@@ -1,6 +1,8 @@
 package br.com.cecez.modulo_009;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,6 +19,15 @@ public class Main {
         ArrayList list = new ArrayList();
         list.add("Test");
         list.add(2);
+
+        Comparator<Object> comparator = new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        };
+
+        list.sort(comparator);
 
         System.out.println(list.size());
     }

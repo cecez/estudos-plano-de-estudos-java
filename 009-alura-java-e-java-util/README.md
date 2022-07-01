@@ -91,3 +91,61 @@ Integer argWrapper = Integer.valueOf(args[0]);
 
 # Number class
 ![](./number.png)
+
+# Interface Comparator<T>
+- sorting
+```java
+public TestComparator implements Comparator<T>
+{
+    @Override
+    public int compare(T t1,T t2)
+    {
+        return Integer.compare(t1,t2); // if int parameters
+        // return t1 - t2;
+    }
+}
+```
+
+# Class Collections
+- facade to many methods regarding collections
+
+# Interface java.lang.Comparable<T>
+- define natural order
+- must implement compareTo(T obj);
+
+# Anonymous classes
+```java
+list.sort(new Comparator<T>() {
+    @Override
+    public int compare(T t1, T t2) {
+        return t1 - t2;    
+    }
+})
+```
+
+# Lambda functions
+```java
+list.sort((T t1, T t2) -> {
+    return t1 - t2;
+});
+
+list.sort((t1, t2) -> t1 - t2);
+
+// foreach
+list.forEach((t) -> System.out.prinln(t));
+```
+
+# Interface java.util.Iterator
+- hasNext(), next()
+```java
+List<String> names = new ArrayList<>();
+names.add("Super Mario");
+names.add("Yoshi"); 
+names.add("Donkey Kong"); 
+
+Iterator<String> it = names.iterator();
+
+while(it.hasNext()) {
+  System.out.println(it.next());
+}
+```
