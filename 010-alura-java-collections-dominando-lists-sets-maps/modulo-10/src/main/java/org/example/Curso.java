@@ -1,13 +1,12 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Curso {
     private String titulo;
     private String instrutor;
     private List<Aula> aulas = new ArrayList<>();
+    private Set<Aluno> alunos = new HashSet<>();
 
     public Curso(String titulo, String instrutor) {
         this.titulo = titulo;
@@ -28,5 +27,13 @@ public class Curso {
 
     public void adiciona(Aula aula) {
         this.aulas.add(aula);
+    }
+
+    public void matricula(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
+
+    public Set<Aluno> getAlunos() {
+        return Collections.unmodifiableSet(alunos);
     }
 }
