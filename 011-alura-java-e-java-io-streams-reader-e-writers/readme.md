@@ -1,0 +1,11 @@
+- ![](./entrada.png)
+- Input
+  - InputStream ... input stream of bytes ...
+  - InputStreamReader
+  - Reader ... reading characters streams ...
+  - System.in (entrada pelo terminal)
+  - Socket (rede)
+- Output
+  - OutputStream
+  - OutputStreamWriter
+  - Writer
