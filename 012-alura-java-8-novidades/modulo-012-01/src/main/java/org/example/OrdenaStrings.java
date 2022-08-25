@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class OrdenaStrings {
     public static void main(String[] args) {
@@ -22,6 +23,15 @@ public class OrdenaStrings {
         // com lambda
         palavras.sort((s1,s2) -> Integer.compare(s1.length(), s2.length()));
 
+        // com method reference
+        Function<String, Integer> funcao = s -> s.length(); // String::length
+        Comparator<String> comparador = Comparator.comparing(funcao);
+        palavras.sort(comparador);
+
+        palavras.sort(Comparator.comparing(s -> s.length()));
+        palavras.sort(Comparator.comparing(String::length));
+        palavras.sort(String.CASE_INSENSITIVE_ORDER);
+
         System.out.println(palavras);
 
         // Consumer<String> consumidor = new ConsumidorEImpressorDeStrings(); // sem classe anônima
@@ -35,7 +45,7 @@ public class OrdenaStrings {
         // com lambda
         //palavras.forEach((String s) -> System.out.println(s));
         palavras.forEach((s) -> System.out.println(s));
-        // com referencia do metodo
+        // com method reference
 //        palavras.forEach(System.out::println);
     }
 }

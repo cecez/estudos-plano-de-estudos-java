@@ -8,3 +8,7 @@
   
 - lambda
   - pode ser usado em casos que exige uma implementacao de um unico metodo (interface funcional)
+
+- method reference
+- streams
+- Optional
