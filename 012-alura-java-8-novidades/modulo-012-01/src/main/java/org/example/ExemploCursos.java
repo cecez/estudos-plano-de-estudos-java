@@ -66,5 +66,7 @@ public class ExemploCursos {
                 .collect(Collectors.toMap(Curso::getNome, Curso::getQuantidadeDeAlunos));
 
         System.out.println(cursoMap);
+
+
     }
 }
