@@ -1,0 +1,3 @@
+- strategy
+- chain of responsability
+- template method
