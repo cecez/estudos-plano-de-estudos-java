@@ -8,8 +8,10 @@ import org.imposto.CalculadoraDeImpostos;
 import org.imposto.ICMS;
 import org.imposto.TipoImposto;
 import org.orcamento.Orcamento;
+import org.pedido.Pedido;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * Unit test for simple App.
@@ -72,6 +74,13 @@ public class OrcamentoTest
         calculadoraDeDescontos = new CalculadoraDeDescontos();
 
         assertEquals(BigDecimal.ZERO, calculadoraDeDescontos.calcular(orcamento));
+    }
+
+    public void test_pedido() {
+        Orcamento orcamento = new Orcamento(new BigDecimal("200.00"), 4);
+        Pedido pedido = new Pedido("Cliente A", LocalDateTime.now(), orcamento);
+
+
     }
 
 }
