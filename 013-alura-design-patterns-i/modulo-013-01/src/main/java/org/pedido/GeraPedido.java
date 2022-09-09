@@ -1,6 +1,8 @@
 package org.pedido;
 
 import org.orcamento.Orcamento;
+import org.pedido.acao.EnviarEmail;
+import org.pedido.acao.SalvaNoBD;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,11 +18,15 @@ public class GeraPedido {
         this.quantidadeDeItens = quantidadeDeItens;
     }
 
-    public void executa() {
-        Orcamento orcamento = new Orcamento(valorOrcamento, quantidadeDeItens);
-        Pedido pedido = new Pedido(cliente, LocalDateTime.now(), orcamento);
+    public String getCliente() {
+        return cliente;
+    }
 
-        // salva no bd
-        // envia notificacao
+    public BigDecimal getValorOrcamento() {
+        return valorOrcamento;
+    }
+
+    public int getQuantidadeDeItens() {
+        return quantidadeDeItens;
     }
 }

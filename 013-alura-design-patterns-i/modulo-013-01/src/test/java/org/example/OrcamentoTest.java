@@ -8,10 +8,15 @@ import org.imposto.CalculadoraDeImpostos;
 import org.imposto.ICMS;
 import org.imposto.TipoImposto;
 import org.orcamento.Orcamento;
+import org.pedido.GeraPedido;
+import org.pedido.GeraPedidoHandler;
 import org.pedido.Pedido;
+import org.pedido.acao.EnviarEmail;
+import org.pedido.acao.SalvaNoBD;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 /**
  * Unit test for simple App.
@@ -77,8 +82,11 @@ public class OrcamentoTest
     }
 
     public void test_pedido() {
-        Orcamento orcamento = new Orcamento(new BigDecimal("200.00"), 4);
-        Pedido pedido = new Pedido("Cliente A", LocalDateTime.now(), orcamento);
+        GeraPedido geraPedido = new GeraPedido("Cliente A", new BigDecimal("200.00"), 10);
+        GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(
+            Arrays.asList(new SalvaNoBD(), new EnviarEmail())
+        );
+        geraPedidoHandler.executa(geraPedido);
 
 
     }
