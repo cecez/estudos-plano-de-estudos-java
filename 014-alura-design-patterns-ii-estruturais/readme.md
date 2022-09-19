@@ -1,0 +1,2 @@
+padroes estruturais:
+- adapter
