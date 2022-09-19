@@ -1,3 +1,4 @@
+Padrões comportamentais:
 - strategy
 - chain of responsability
 - template method
