@@ -1,2 +1,3 @@
 padroes estruturais:
 - adapter
+- decorator
