@@ -3,19 +3,11 @@ package org.example;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.desconto.CalculadoraDeDescontos;
-import org.imposto.CalculadoraDeImpostos;
-import org.imposto.ICMS;
 import org.loja.JavaHttpAdapter;
+import org.orcamento.ItemOrcamento;
 import org.orcamento.Orcamento;
 import org.orcamento.RegistroDeOrcamento;
-import org.pedido.GeraPedido;
-import org.pedido.GeraPedidoHandler;
-import org.pedido.acao.EnviarEmail;
-import org.pedido.acao.SalvaNoBD;
-
 import java.math.BigDecimal;
-import java.util.Arrays;
 
 public class AdapterTest extends TestCase {
     /**
@@ -41,7 +33,8 @@ public class AdapterTest extends TestCase {
      */
     public void testApp()
     {
-        Orcamento orcamento = new Orcamento(BigDecimal.TEN, 1);
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionaItem(new ItemOrcamento(BigDecimal.TEN));
         orcamento.aprovar();
         orcamento.finalizar();
 

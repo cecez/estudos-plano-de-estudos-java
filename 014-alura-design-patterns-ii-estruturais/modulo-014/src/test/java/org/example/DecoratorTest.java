@@ -8,6 +8,7 @@ import org.imposto.ICMSDecorador;
 import org.imposto.ISSDecorador;
 import org.imposto.ImpostoDecorador;
 import org.loja.JavaHttpAdapter;
+import org.orcamento.ItemOrcamento;
 import org.orcamento.Orcamento;
 import org.orcamento.RegistroDeOrcamento;
 
@@ -37,7 +38,8 @@ public class DecoratorTest extends TestCase {
      */
     public void testApp()
     {
-        Orcamento orcamento = new Orcamento(BigDecimal.TEN, 1);
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionaItem(new ItemOrcamento(BigDecimal.TEN));
         orcamento.aprovar();
         orcamento.finalizar();
 
