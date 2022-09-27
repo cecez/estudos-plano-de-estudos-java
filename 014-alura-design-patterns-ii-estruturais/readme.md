@@ -3,3 +3,4 @@ padroes estruturais:
 - decorator
 - composite
 - facade
+- proxy
