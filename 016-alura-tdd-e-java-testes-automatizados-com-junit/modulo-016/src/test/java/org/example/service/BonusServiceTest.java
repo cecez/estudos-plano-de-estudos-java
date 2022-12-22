@@ -20,7 +20,23 @@ class BonusServiceTest {
         funcionarioList.add(new Funcionario("Teste 3", LocalDate.now(), new BigDecimal("30000")));
 
         BonusService bonusService = new BonusService();
-        funcionarioList.forEach((funcionario -> assertEquals(new BigDecimal("0.00"), bonusService.calcularBonus(funcionario))));
+        funcionarioList.forEach(
+                funcionario -> assertThrows(IllegalArgumentException.class, () -> bonusService.calcularBonus(funcionario))
+        );
+    }
+
+    @Test
+    void cenariosParaBonusZeroComTry() {
+        Funcionario f = new Funcionario("Teste 1", LocalDate.now(), new BigDecimal("20000"));
+        BonusService bonusService = new BonusService();
+
+        try {
+            bonusService.calcularBonus(f);
+            fail("Excecao nao disparada");
+        } catch (IllegalArgumentException e) {
+
+        }
+
     }
 
     @Test
