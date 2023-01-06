@@ -7,3 +7,10 @@
 - buscar dependencia (mvnrepository ou outro repositorio)
 - incluir no pom.xml na secao <dependencies>
 - atualizar projeto
+
+# Comandos/Goals do Maven
+mvn compile
+mvn clean
+mvn test
+mvn package
+mvn install
