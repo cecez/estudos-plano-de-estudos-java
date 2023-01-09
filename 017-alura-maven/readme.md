@@ -8,9 +8,12 @@
 - incluir no pom.xml na secao <dependencies>
 - atualizar projeto
 
-# Comandos/Goals do Maven
+## Comandos/Goals do Maven
 mvn compile
 mvn clean
 mvn test
 mvn package
 mvn install
+
+## Plugins, módulos
+https://github.com/rcaneppele/fj91-clean-architecture
