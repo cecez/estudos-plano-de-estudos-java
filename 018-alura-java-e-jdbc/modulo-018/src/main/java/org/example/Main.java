@@ -1,18 +1,49 @@
 package org.example;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Conectando com o banco de dados...");
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/java_018?useTimezone=true&serverTimezone=UTC", "root", "");
-            connection.close();
+        // conexão com banco de dados
+        try (Connection connection = ConnectionFactory.obter()) {
+            Statement statement = connection.createStatement();
+            if (!statement.execute("SELECT id, nome, descricao FROM produto")) {
+                throw new SQLException("Sem resultados");
+            }
+
+            // obtendo resultados de um SELECT
+            ResultSet resultSet = statement.getResultSet();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String nome = resultSet.getString("nome");
+                String descricao = resultSet.getString("descricao");
+
+                System.out.println(id + " - " + nome + " - " + descricao);
+            }
+
+            // inserindo um registro
+            statement = connection.createStatement();
+            statement.execute("INSERT INTO produto(nome, descricao) VALUES('caneca', 'rindson');", Statement.RETURN_GENERATED_KEYS);
+
+            resultSet = statement.getGeneratedKeys();
+            int id = 1;
+            while (resultSet.next()) {
+                id = resultSet.getInt(1);
+                System.out.println("Registro inserido com id: " + id);
+            }
+
+            // removendo um registro
+            statement = connection.createStatement();
+            statement.execute("DELETE FROM produto WHERE id = " + id, Statement.RETURN_GENERATED_KEYS);
+            int removidos = statement.getUpdateCount();
+            System.out.println("Removido(s) " + removidos + " registro(s).");
+
+
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 }
