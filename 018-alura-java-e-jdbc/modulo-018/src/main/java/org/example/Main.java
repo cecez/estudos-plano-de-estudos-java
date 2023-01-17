@@ -8,6 +8,9 @@ public class Main {
 
         // conexão com banco de dados
         try (Connection connection = ConnectionFactory.obter()) {
+            connection.setAutoCommit(false);
+
+            connection.beginRequest();
             Statement statement = connection.createStatement();
             if (!statement.execute("SELECT id, nome, descricao FROM produto")) {
                 throw new SQLException("Sem resultados");
@@ -40,9 +43,24 @@ public class Main {
             int removidos = statement.getUpdateCount();
             System.out.println("Removido(s) " + removidos + " registro(s).");
 
+            // inserindo com prepared statement
+            String sql = "INSERT INTO produto(nome, descricao) VALUES(?, ?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, args[0]);
+            preparedStatement.setString(2, args[1]);
+            preparedStatement.execute();
+            resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            System.out.println("Registro inserido com prepared statement com id: " + resultSet.getInt(1));
 
+            resultSet.close();
+            preparedStatement.close();
+            statement.close();
+
+            connection.commit();
 
         } catch (SQLException e) {
+
             System.out.println(e.getMessage());
         }
     }
