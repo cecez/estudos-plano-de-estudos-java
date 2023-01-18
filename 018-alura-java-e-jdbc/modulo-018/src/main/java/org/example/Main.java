@@ -7,7 +7,7 @@ public class Main {
         System.out.println("Conectando com o banco de dados...");
 
         // conexão com banco de dados
-        try (Connection connection = ConnectionFactory.obter()) {
+        try (Connection connection = (new ConnectionFactory()).obter()) {
             connection.setAutoCommit(false);
 
             connection.beginRequest();
