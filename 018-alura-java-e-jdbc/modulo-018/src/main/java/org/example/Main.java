@@ -57,6 +57,11 @@ public class Main {
             preparedStatement.close();
             statement.close();
 
+            Produto produto = new Produto("Cubo", "Cubo mágico");
+            ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+            produtoDAO.inserir(produto);
+            System.out.println(produto);
+
             connection.commit();
 
         } catch (SQLException e) {
