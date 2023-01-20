@@ -1,6 +1,10 @@
 package org.example;
 
+import org.example.dao.ProdutoDAO;
+import org.example.models.Produto;
+
 import java.sql.*;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -61,6 +65,9 @@ public class Main {
             ProdutoDAO produtoDAO = new ProdutoDAO(connection);
             produtoDAO.inserir(produto);
             System.out.println(produto);
+
+            List<Produto> listaProdutos = produtoDAO.listar();
+            listaProdutos.forEach(System.out::println);
 
             connection.commit();
 

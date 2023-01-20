@@ -1,13 +1,21 @@
-package org.example;
+package org.example.models;
 
 public class Produto {
     private int id;
-    private String nome;
-    private String descricao;
+    private final String nome;
+    private final String descricao;
+    private Categoria categoria;
 
     public Produto(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
+    }
+
+    public Produto(int id, String nome, String descricao, Categoria categoria) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoria = categoria;
     }
 
     public String getNome() {
@@ -28,6 +36,7 @@ public class Produto {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }
