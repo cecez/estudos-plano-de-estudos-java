@@ -5,6 +5,7 @@ public class Produto {
     private final String nome;
     private final String descricao;
     private Categoria categoria;
+    private int categoriaId;
 
     public Produto(String nome, String descricao) {
         this.nome = nome;
@@ -38,5 +39,17 @@ public class Produto {
                 ", descricao='" + descricao + '\'' +
                 ", categoria='" + categoria + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setCategoriaId(int id) {
+        categoriaId = id;
+    }
+
+    public int getCategoriaId() {
+        return categoriaId;
     }
 }

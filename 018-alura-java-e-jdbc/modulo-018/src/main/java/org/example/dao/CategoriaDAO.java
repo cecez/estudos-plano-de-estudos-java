@@ -28,22 +28,26 @@ public class CategoriaDAO {
         return categoria;
     }
 
-    public List<Categoria> listar() throws SQLException {
+    public List<Categoria> listar() {
         List<Categoria> categorias = new ArrayList<>();
 
         String sql = "SELECT id, nome FROM categoria;";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.execute();
+        try {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.execute();
 
-            try (ResultSet resultSet = preparedStatement.getResultSet()) {
-                while (resultSet.next()) {
-                    Categoria categoria = new Categoria(
-                            resultSet.getInt(1),
-                            resultSet.getString(2)
-                    );
-                    categorias.add(categoria);
+                try (ResultSet resultSet = preparedStatement.getResultSet()) {
+                    while (resultSet.next()) {
+                        Categoria categoria = new Categoria(
+                                resultSet.getInt(1),
+                                resultSet.getString(2)
+                        );
+                        categorias.add(categoria);
+                    }
                 }
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
         return categorias;

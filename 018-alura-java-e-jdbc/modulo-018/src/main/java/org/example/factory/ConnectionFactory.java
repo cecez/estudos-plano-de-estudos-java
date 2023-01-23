@@ -1,4 +1,4 @@
-package org.example;
+package org.example.factory;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -19,7 +19,11 @@ public class ConnectionFactory {
         this.dataSource = comboPooledDataSource;
     }
 
-    public Connection obter() throws SQLException {
-        return this.dataSource.getConnection();
+    public Connection obter() {
+        try {
+            return this.dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
