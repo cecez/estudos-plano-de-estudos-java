@@ -20,6 +20,12 @@ java Programa
 
 Nessa aula você escreveu o seu primeiro código Java e aprendemos:
 - qual é a diferença entre JRE e JDK
+    - jre
+        - executar aplicativos Java já compilados 
+        - inclui jvm, bibliotecas e componentes
+    - jdk
+        - desenvolver aplicativos Java
+        - inclui todos os componentes do JRE, compiladores (javac), depuradores (jdb), empacotadores (jar) e outros utilitários
 - como compilar um código fonte Java na linha de comando (javac)
 - como executar o Bytecode na linha de comando (java)
 - um programa Java deve estar escrito dentro de uma classe (class)
