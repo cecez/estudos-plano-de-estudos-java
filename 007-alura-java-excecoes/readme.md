@@ -11,3 +11,18 @@ heap: objects allocation memory
   - **IllegalStateException**: illegal state exception
   - **IndexOutOfBoundsException**: index out of bounds exception
   - **NumberFormatException**: number format exception
+
+
+Throwable (classe base)
+- Exception
+  - RuntimeException
+    - NullPointerException
+    - ArithmeticException
+    - ...
+  - IOException
+  - SQLException
+  - ...
+- Error (unchecked)
+  - OutOfMemoryError
+  - StackOverflowError
+  - ...
