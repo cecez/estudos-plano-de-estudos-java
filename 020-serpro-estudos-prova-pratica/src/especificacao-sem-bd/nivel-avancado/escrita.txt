@@ -1,0 +1,3 @@
+Primeira linha
+Um dado: outro dado.
+fechando arquivo.
